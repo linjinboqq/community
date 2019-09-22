@@ -13,6 +13,7 @@
         from discuss_post
         where status != 2
 --         拉黑的帖子 =2
+-- 动态sql
         <if test="userId!=0">
             and user_id = #{userId}
         </if>
