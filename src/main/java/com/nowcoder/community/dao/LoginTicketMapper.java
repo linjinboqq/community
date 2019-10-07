@@ -3,6 +3,9 @@ package com.nowcoder.community.dao;
 import com.nowcoder.community.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
+
+//优化以后不推荐使用了
+@Deprecated
 @Mapper
 public interface LoginTicketMapper {
 

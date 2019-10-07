@@ -20,10 +20,6 @@ public class Al {
     @RequestMapping("/student/{id}")
     @ResponseBody
     public String hello(@PathVariable("id") int id) {
-
-
         return id + " ";
     }
-
-
 }

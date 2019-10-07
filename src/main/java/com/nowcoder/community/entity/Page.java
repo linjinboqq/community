@@ -1,8 +1,4 @@
 package com.nowcoder.community.entity;
-
-/**
- *
- */
 public class Page {
 
     private int current = 1;

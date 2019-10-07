@@ -1,6 +1,6 @@
 package com.nowcoder.community.entity;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class DiscussPost {
     private int id;
@@ -9,7 +9,7 @@ public class DiscussPost {
     private String content;
     private int type;
     private int status;
-    private Data createTime;
+    private java.util.Date createTime;
     private int commentCount;
     private double score;
 
@@ -21,13 +21,6 @@ public class DiscussPost {
         this.id = id;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
 
     public String getTitle() {
         return title;
@@ -39,6 +32,14 @@ public class DiscussPost {
 
     public String getContent() {
         return content;
+    }
+
+    public int getUserId() {
+        return userid;
+    }
+
+    public void setUserId(int userid) {
+        this.userid = userid;
     }
 
     public void setContent(String content) {
@@ -61,11 +62,11 @@ public class DiscussPost {
         this.status = status;
     }
 
-    public Data getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Data createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
