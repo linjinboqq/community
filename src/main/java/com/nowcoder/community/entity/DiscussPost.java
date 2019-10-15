@@ -1,16 +1,41 @@
 package com.nowcoder.community.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.util.Date;
 
+@Document(indexName = "discusspost", type = "_doc", shards = 6, replicas = 3)
 public class DiscussPost {
+
+    @Id
     private int id;
-    private int userid;
+
+    @Field(type = FieldType.Integer)
+    private int userId;
+
+    // »¥ÁªÍøÐ£ÕÐ
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
     private String title;
+
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
     private String content;
+
+    @Field(type = FieldType.Integer)
     private int type;
+
+    @Field(type = FieldType.Integer)
     private int status;
-    private java.util.Date createTime;
+
+    @Field(type = FieldType.Date)
+    private Date createTime;
+
+    @Field(type = FieldType.Integer)
     private int commentCount;
+
+    @Field(type = FieldType.Double)
     private double score;
 
     public int getId() {
@@ -21,6 +46,13 @@ public class DiscussPost {
         this.id = id;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getTitle() {
         return title;
@@ -32,14 +64,6 @@ public class DiscussPost {
 
     public String getContent() {
         return content;
-    }
-
-    public int getUserId() {
-        return userid;
-    }
-
-    public void setUserId(int userid) {
-        this.userid = userid;
     }
 
     public void setContent(String content) {
@@ -90,7 +114,7 @@ public class DiscussPost {
     public String toString() {
         return "DiscussPost{" +
                 "id=" + id +
-                ", userid=" + userid +
+                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", type=" + type +

@@ -65,14 +65,14 @@ public class UserController implements CommunityConstant {
 //    接收图片参数 MultipartFile headerImage
     public String uploadHeader(MultipartFile headerImage, Model model) {
         if (headerImage == null) {
-            model.addAttribute("error", "您还没有选择图片!");
+            model.addAttribute("templates/error", "您还没有选择图片!");
             return "/site/setting";
         }
 
         String fileName = headerImage.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf("."));
         if (StringUtils.isBlank(suffix)) {
-            model.addAttribute("error", "文件的格式不正确!");
+            model.addAttribute("templates/error", "文件的格式不正确!");
             return "/site/setting";
         }
 
